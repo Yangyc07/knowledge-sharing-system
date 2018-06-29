@@ -1,13 +1,15 @@
 # knowledge-sharing-system
 知识分享系统
 
-### 目录
-- [1.用户列表信息](#userlist)
-- [课程列表信息](#课程列表信息)
+## 目录
+- [用户](#用户)
+- [课程](#课程)
 
 ***
+### 用户
+***
 
-<span id="userlist">#### 1.用户列表信息 </span><br>
+#### 用户列表信息 <br>
 
 **url:http://localhost:8088/demo/manage/user/list**
 **type: post**
@@ -206,7 +208,8 @@ fail  有很多种情况  具体再讨论
 
 
 ***
-
+### 课程
+***
 <span id="courselist">#### 3.课程列表信息 </span><br>
 **url:http://localhost:8088/demo/manage/course/list**
 **type: post**
