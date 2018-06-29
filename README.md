@@ -1,8 +1,13 @@
 # knowledge-sharing-system
 知识分享系统
 
+### 目录
+- [用户列表信息](#用户列表信息)
+- [课程列表信息](#课程列表信息)
+
+<h2>用户管理
 ***
-####3.用户列表信息 <br>
+#### 1.用户列表信息 <br>
 **url:http://localhost:8088/demo/manage/user/list**
 **type: post**
 > request
@@ -108,7 +113,7 @@ fail
 
 ***
 
-####4.删除用户 <br>
+#### 2.删除用户 <br>
 **url:http://10.10.57.62:8088/demo/manage/user/{id}**
 **type: delete**
 > request    id可为数组  如: 01,02,02
@@ -136,7 +141,7 @@ fail
 
 ***
 
-####5.修改用户 <br>
+#### 3.修改用户 <br>
 **url:http://10.10.57.62:8088/demo/manage/user/{id}**
 **type: put**
 > request  (只需要提交需要修改的数据)
@@ -164,7 +169,7 @@ fail  有很多种情况  具体再讨论
 
 ***
 
-####6.添加用户 <br>
+#### 4.添加用户 <br>
 **url:http://10.10.57.62:8088/demo/manage/user/**
 **type: post**
 > request  
@@ -199,7 +204,8 @@ fail  有很多种情况  具体再讨论
 
 
 ***
-####3.课程列表信息 <br>
+
+#### 3.课程列表信息 <br>
 **url:http://localhost:8088/demo/manage/course/list**
 **type: post**
 > request
@@ -261,7 +267,7 @@ fail
 
 ***
 
-####4.删除课程 <br>
+#### 4.删除课程 <br>
 **url:http://10.10.57.62:8088/demo/manage/course/{id}**
 **type: delete**
 > request    id可为数组  如: 01,02,02
@@ -326,11 +332,10 @@ fail  有很多种情况  具体再讨论
 > response  
 
 success
-
 	   {
 	    "status": 0,
 	    "msg": "修改成功",
-	    "data": {},
+	    "data": 显示:文件名,文件摘要，路径，创建日期，收藏次数，喜欢次数，下载次数
 	    "success": true
 	   }
 
