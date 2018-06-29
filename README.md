@@ -317,6 +317,36 @@ fail  有很多种情况  具体再讨论
 
 ***
 
+####5.文件显示 <br>
+**url:http://10.10.57.62:8088/demo/manage/file/{id}**
+**type: put**
+> request  (只需要提交需要修改的数据)
+
+     courseId,courseName
+> response  
+
+success
+
+	   {
+	    "status": 0,
+	    "msg": "修改成功",
+	    "data": {},
+	    "success": true
+	   }
+
+fail  有很多种情况  具体再讨论
+
+    {
+	    "status": 1,
+	    "msg": "修改失败",
+	    "data": null,
+	    "success": false
+    }
+
+***
+
+
+
 ####5.模板 <br>
 **url:http://10.10.57.62:8088/demo/user/list**
 **type: post**
@@ -339,6 +369,7 @@ fail
     "status": 1,
     "msg": ""
     }
+
 
 
 
