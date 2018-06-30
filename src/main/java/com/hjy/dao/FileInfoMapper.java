@@ -9,7 +9,7 @@ import java.util.Date;
 public interface FileInfoMapper {
     int deleteByPrimaryKey(String fileHash);
 
-    int insert(FileInfo record); //2
+    int insert(FileInfo record);
 
     int insertSelective(FileInfo record);
 
