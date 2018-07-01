@@ -5,14 +5,6 @@ public class School {
 
     private String schoolName;
 
-    @Override
-    public String toString() {
-        return "School{" +
-                "schoolId='" + schoolId + '\'' +
-                ", schoolName='" + schoolName + '\'' +
-                '}';
-    }
-
     public School(String schoolId, String schoolName) {
         this.schoolId = schoolId;
         this.schoolName = schoolName;

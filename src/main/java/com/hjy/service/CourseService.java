@@ -3,7 +3,6 @@ package com.hjy.service;
 import com.github.pagehelper.PageInfo;
 import com.hjy.common.ServerResponse;
 import com.hjy.entity.Course;
-import com.hjy.entity.School;
 
 /**
  * @author hjy

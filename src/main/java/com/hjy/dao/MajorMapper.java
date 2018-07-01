@@ -1,9 +1,6 @@
 package com.hjy.dao;
 
-import com.hjy.entity.Course;
 import com.hjy.entity.Major;
-import com.hjy.entity.School;
-import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -20,8 +17,8 @@ public interface MajorMapper {
 
     int updateByPrimaryKey(Major record);
 
-    List<Major> getList();
+	void deleteByMajorIds(List<String> majorList);
 
-    int deleteByMajorIds(@Param("majorIdList")List<String> majorIdList);
+    List<Major> getList();
 
 }

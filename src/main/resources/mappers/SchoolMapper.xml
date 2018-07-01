@@ -16,8 +16,7 @@
     from tb_school
     where school_id = #{schoolId,jdbcType=VARCHAR}
   </select>
-
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from tb_school
     where school_id = #{schoolId,jdbcType=VARCHAR}
   </delete>
@@ -58,20 +57,4 @@
     set school_name = #{schoolName,jdbcType=VARCHAR}
     where school_id = #{schoolId,jdbcType=VARCHAR}
   </update>
-
-
-  <select id="getList" resultType="com.hjy.entity.School">
-    select
-    <include refid="Base_Column_List" />
-    from tb_school
-  </select>
-
-  <delete id="deleteBySchoolIds">
-    delete from tb_school
-    where school_id in
-    <foreach collection="schoolIdList" item="item" index="index" open="(" separator="," close=")">
-      #{item}
-    </foreach>
-  </delete>
-
 </mapper>

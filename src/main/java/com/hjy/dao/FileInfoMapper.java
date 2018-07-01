@@ -1,10 +1,8 @@
 package com.hjy.dao;
 
 import com.hjy.entity.FileInfo;
-import org.apache.ibatis.annotations.Param;
 
 import java.util.Date;
-
 
 public interface FileInfoMapper {
     int deleteByPrimaryKey(String fileHash);
@@ -19,6 +17,5 @@ public interface FileInfoMapper {
 
     int updateByPrimaryKey(FileInfo record);
 
-
-    int insertFile(@Param("userId")Long userId, FileInfo fileInfo,  @Param("date")Date date);
+	void insertFile(Long userId, FileInfo fileInfo, Date date);
 }

@@ -1,7 +1,6 @@
 package com.hjy.dao;
 
 import com.hjy.entity.User;
-import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -18,13 +17,11 @@ public interface UserMapper {
 
     int updateByPrimaryKey(User record);
 
-    List<User> getList();
+	List<User> getList();
+
+    User selectLogin(String username, String md5Password);
 
     int checkUsername(String username);
 
-    User selectLogin(@Param("username") String username, @Param("password")String password);
-
-    int deleteByUserIds(@Param("userIdList")List<String> userIdList);
-
-
+    void deleteByUserIds(List<String> userList);
 }

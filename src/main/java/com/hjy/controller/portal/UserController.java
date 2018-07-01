@@ -4,12 +4,18 @@ import com.hjy.common.Const;
 import com.hjy.common.ServerResponse;
 import com.hjy.entity.User;
 import com.hjy.service.UserService;
+import com.hjy.util.RedisOperator;
+import com.hjy.util.SHA256Util;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 
 /**
  *
@@ -24,6 +30,9 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
+
+	@Autowired
+	private RedisOperator redis;
 
 	/**
 	 * 显示列表
@@ -66,6 +75,25 @@ public class UserController {
 		}
 		return response;
 	}
+
+	@RequestMapping(value = "redis_test.do",method = RequestMethod.POST)
+	public ServerResponse<User> test(String username, String password, HttpSession session){
+		User user = new User();
+		user.setUserId(12L);
+		user.setUsername(username);
+		user.setPassword(password);
+
+
+		//session.setAttribute(session.getId(),user.getUserId());
+		redis.set(SHA256Util.getSHA256StrJava(session.getId()),
+				JSONObject.toJSONString(session.getId()));
+
+		//System.out.println(session.getAttribute(session.getId()));
+		System.out.println(redis.get(session.getId()));
+
+		return null;
+	}
+
 
 	/**
 	 * 登录注销
@@ -124,5 +152,10 @@ public class UserController {
 		return ServerResponse.createByErrorMessage("输入参数有误！");
 		//return userService.updateUser(user);
 	}
+
+
+
+
+
 
 }

@@ -6,8 +6,6 @@ import com.google.common.base.Splitter;
 import com.hjy.common.ResponseCode;
 import com.hjy.common.ServerResponse;
 import com.hjy.dao.MajorMapper;
-import com.hjy.dao.SchoolMapper;
-import com.hjy.entity.Course;
 import com.hjy.entity.Major;
 import com.hjy.service.MajorService;
 import org.slf4j.Logger;

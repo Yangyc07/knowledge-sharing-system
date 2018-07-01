@@ -152,33 +152,4 @@
       gmt_create = #{gmtCreate,jdbcType=TIMESTAMP}
     where user_id = #{userId,jdbcType=BIGINT}
   </update>
-
-  <delete id="deleteByUserIds">
-    delete from tb_user_info
-    where user_id in
-    <foreach collection="userIdList" item="item" index="index" open="(" separator="," close=")">
-      #{item}
-    </foreach>
-  </delete>
-
-  <select id="selectLogin" resultType="com.hjy.entity.User">
-    SELECT
-    <include refid="Base_Column_List" />
-    from tb_user_info
-    where username = #{username}
-    and password = #{password}
-  </select>
-
-  <select id="checkUsername" resultType="java.lang.Integer">
-    select count(1) from tb_user_info
-    where username = #{username}
-  </select>
-
-  <select id="getList" resultType="com.hjy.entity.User">
-    select
-    <include refid="Base_Column_List" />
-    from tb_user_info
-  </select>
-
-
 </mapper>

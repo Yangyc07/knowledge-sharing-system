@@ -52,7 +52,6 @@
       </if>
     </trim>
   </insert>
-
   <update id="updateByPrimaryKeySelective" parameterType="com.hjy.entity.FileInfo" >
     update tb_file_info
     <set >
@@ -71,13 +70,4 @@
       file_url = #{fileUrl,jdbcType=VARCHAR}
     where file_hash = #{fileHash,jdbcType=VARCHAR}
   </update>
-
-
-  <insert id="insertFile" parameterType="com.hjy.entity.FileInfo">
-    insert tb_user_operate_file
-    set user_id = #{UserId,jdbcType=BIGINT},
-      file_hash = #{fileHash,jdbcType=VARCHAR},
-      gmt_create = #{date,jdbcType=TIMESTAMP},
-      status = '1'
-  </insert>
 </mapper>

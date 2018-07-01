@@ -1,13 +1,10 @@
 package com.hjy.dao;
 
 import com.hjy.entity.Course;
-import com.hjy.entity.School;
-import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
 public interface CourseMapper {
-
     int deleteByPrimaryKey(String courseId);
 
     int insert(Course record);
@@ -20,9 +17,10 @@ public interface CourseMapper {
 
     int updateByPrimaryKey(Course record);
 
+	void deleteByCourseIds(List<String> courseIdList);
+
+    List<Course> getListByMajorName(String majorName);
+
     List<Course> getList();
 
-	void deleteByCourseIds(@Param("courseIdList")List<String> courseIdList);
-
-	List<Course> getListByMajorName(String majorName);
 }

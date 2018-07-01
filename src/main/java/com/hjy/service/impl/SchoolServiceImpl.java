@@ -6,7 +6,6 @@ import com.google.common.base.Splitter;
 import com.hjy.common.ResponseCode;
 import com.hjy.common.ServerResponse;
 import com.hjy.dao.SchoolMapper;
-import com.hjy.dao.UserMapper;
 import com.hjy.entity.School;
 import com.hjy.service.SchoolService;
 import org.slf4j.Logger;
@@ -16,7 +15,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
-import org.springframework.web.bind.annotation.PutMapping;
 
 import java.util.List;
 

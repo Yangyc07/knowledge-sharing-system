@@ -57,18 +57,4 @@
     set major_name = #{majorName,jdbcType=VARCHAR}
     where major_id = #{majorId,jdbcType=VARCHAR}
   </update>
-
-  <select id="getList" resultType="com.hjy.entity.Major">
-    select
-    <include refid="Base_Column_List" />
-    from tb_major
-  </select>
-
-  <delete id="deleteByMajorIds">
-    delete from tb_major
-    where major_id in
-    <foreach collection="majorIdList" item="item" index="index" open="(" separator="," close=")">
-      #{item}
-    </foreach>
-  </delete>
 </mapper>

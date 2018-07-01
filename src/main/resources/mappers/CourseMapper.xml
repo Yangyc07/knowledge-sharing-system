@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.hjy.dao.CourseMapper" >
-
   <resultMap id="BaseResultMap" type="com.hjy.entity.Course" >
     <constructor >
       <idArg column="course_id" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="course_name" jdbcType="VARCHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
-
   <sql id="Base_Column_List" >
     course_id, course_name
   </sql>
-
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
@@ -60,29 +57,4 @@
     set course_name = #{courseName,jdbcType=VARCHAR}
     where course_id = #{courseId,jdbcType=VARCHAR}
   </update>
-
-  <delete id="deleteByCourseIds">
-    delete from tb_course
-    where course_id in
-    <foreach collection="courseIdList" item="item" index="index" open="(" separator="," close=")">
-      #{item}
-    </foreach>
-  </delete>
-
-  <select id="getList" resultType="com.hjy.entity.Course">
-    select
-    <include refid="Base_Column_List" />
-    from tb_course
-  </select>
-  <select id="getListByMajorName" resultType="com.hjy.entity.Course">
-    SELECT c.course_id, c.course_name, m.major_name
-    FROM tb_major_course as mc
-      INNER JOIN tb_course as c
-        ON mc.course_id = c.course_id
-      INNER JOIN tb_major m
-        ON m.major_id = mc.major_id
-           AND m.major_name = #{majorName,jdbcType=VARCHAR}
-  </select>
-
-
 </mapper>

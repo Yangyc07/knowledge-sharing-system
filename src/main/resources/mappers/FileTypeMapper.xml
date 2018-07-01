@@ -4,12 +4,11 @@
   <resultMap id="BaseResultMap" type="com.hjy.entity.FileType" >
     <constructor >
       <idArg column="file_type_id" jdbcType="BIGINT" javaType="java.lang.Long" />
-      <arg column="file_hash" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="file_type" jdbcType="VARCHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
   <sql id="Base_Column_List" >
-    file_type_id, file_hash, file_type
+    file_type_id, file_type
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
@@ -22,19 +21,14 @@
     where file_type_id = #{fileTypeId,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.hjy.entity.FileType" >
-    insert into tb_file_type (file_type_id, file_hash, file_type
-      )
-    values (#{fileTypeId,jdbcType=BIGINT}, #{fileHash,jdbcType=VARCHAR}, #{fileType,jdbcType=VARCHAR}
-      )
+    insert into tb_file_type (file_type_id, file_type)
+    values (#{fileTypeId,jdbcType=BIGINT}, #{fileType,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.hjy.entity.FileType" >
     insert into tb_file_type
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="fileTypeId != null" >
         file_type_id,
-      </if>
-      <if test="fileHash != null" >
-        file_hash,
       </if>
       <if test="fileType != null" >
         file_type,
@@ -44,9 +38,6 @@
       <if test="fileTypeId != null" >
         #{fileTypeId,jdbcType=BIGINT},
       </if>
-      <if test="fileHash != null" >
-        #{fileHash,jdbcType=VARCHAR},
-      </if>
       <if test="fileType != null" >
         #{fileType,jdbcType=VARCHAR},
       </if>
@@ -55,9 +46,6 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.hjy.entity.FileType" >
     update tb_file_type
     <set >
-      <if test="fileHash != null" >
-        file_hash = #{fileHash,jdbcType=VARCHAR},
-      </if>
       <if test="fileType != null" >
         file_type = #{fileType,jdbcType=VARCHAR},
       </if>
@@ -66,8 +54,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.hjy.entity.FileType" >
     update tb_file_type
-    set file_hash = #{fileHash,jdbcType=VARCHAR},
-      file_type = #{fileType,jdbcType=VARCHAR}
+    set file_type = #{fileType,jdbcType=VARCHAR}
     where file_type_id = #{fileTypeId,jdbcType=BIGINT}
   </update>
 </mapper>

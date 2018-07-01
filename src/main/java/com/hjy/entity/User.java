@@ -1,10 +1,9 @@
 package com.hjy.entity;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
+import java.io.Serializable;
 import java.util.Date;
 
-public class User {
+public class User implements Serializable{
     private Long userId;
 
     private String nickname;
@@ -23,23 +22,6 @@ public class User {
 
     private Integer integral;
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "userId=" + userId +
-                ", nickname='" + nickname + '\'' +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
-                ", userSchool='" + userSchool + '\'' +
-                ", userNo='" + userNo + '\'' +
-                ", userMajor='" + userMajor + '\'' +
-                ", integral=" + integral +
-                ", gmtCreate=" + gmtCreate +
-                '}';
-    }
-
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
     private Date gmtCreate;
 
     public User(Long userId, String nickname, String username, String password, String email, String userSchool, String userNo, String userMajor, Integer integral, Date gmtCreate) {

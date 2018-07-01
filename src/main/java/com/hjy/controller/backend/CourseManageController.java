@@ -1,17 +1,13 @@
 package com.hjy.controller.backend;
 
-import com.hjy.common.Const;
 import com.hjy.common.ServerResponse;
 import com.hjy.entity.Course;
-import com.hjy.entity.User;
 import com.hjy.service.CourseService;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpSession;
 
 /**
  * @author hjy
